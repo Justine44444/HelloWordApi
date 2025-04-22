@@ -28,6 +28,11 @@ jobs:
       run: mvn -B package --file pom.xml
     - name : test
       run : mvn test
+    - name : plublish an artifact
+      uses : actions/upload-artifact@v4
+      with :
+        name : test-artifact
+        path : target/*.jar
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
